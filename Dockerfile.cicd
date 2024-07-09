@@ -1,0 +1,12 @@
+FROM alpine:3.19
+
+WORKDIR /app
+
+COPY ./out/goapp /app/goapp
+
+RUN adduser -D -u 1000 appuser
+USER appuser
+
+EXPOSE 9000
+
+CMD ["/app/goapp"]
